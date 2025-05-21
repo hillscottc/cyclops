@@ -319,7 +319,7 @@
   </g>
   
   <!-- Title -->
-  <g id="title" transform="translate(400, 40)">
+  <!-- <g id="title" transform="translate(400, 40)">
     <text x="0" y="0" font-family="Arial" font-size="28" font-weight="bold" fill="#e1bee7" text-anchor="middle" filter="url(#glow)">
       Cosmic Horoscope
       <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite" />
@@ -327,7 +327,7 @@
     <text x="0" y="30" font-family="Arial" font-size="16" fill="#b39ddb" text-anchor="middle">
       Zodiac Signs and Celestial Bodies
     </text>
-  </g>
+  </g> -->
   
   <!-- Animated shooting star -->
   <g id="shootingStar">

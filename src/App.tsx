@@ -54,7 +54,7 @@ function App() {
       </section>
 
       {/* the old vite stuff */}
-      <section>
+      {/* <section>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -67,7 +67,7 @@ function App() {
             count is {count}
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
