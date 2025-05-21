@@ -1,0 +1,13 @@
+{
+  "configurations": {
+    "cyclops": {
+      "appLocation": ".",
+      "outputLocation": "dist",
+      "appBuildCommand": "npm run build",
+      "run": "npm run dev",
+      "appDevserverUrl": "http://localhost:5173",
+      "appName": "cyclops-site",
+      "resourceGroup": "cyclops-rg"
+    }
+  }
+}

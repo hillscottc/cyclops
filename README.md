@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+This is a demo project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Deployed at https://orange-grass-09360bb10.6.azurestaticapps.net
+It's a responsive design -- will look good on desktop or phone.
 
-Currently, two official plugins are available:
+The backend is built on Azure, implemented as a [Static Web App](https://azure.microsoft.com/en-us/products/app-service/static) tooled with [swa cli](https://azure.github.io/static-web-apps-cli/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It is tooled as an [Azure Static Web App](https://azure.microsoft.com/en-us/products/app-service/static), mainly to allows server-side routes and auth via `staticwebapp.config.json`.
 
-## Expanding the ESLint configuration
+The frontend is a typescript [React](https://react.dev) app tooled with [Vite](https://vite.dev). Single page architecture with [React Router](https://reactrouter.com/). The styling is [MUI](https://mui.com).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Build
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+First, you'll need to supply some global environment variables. Rename `.env.sample` to `.env` and supply your own values.
+
+## Start
+
+```bash
+npx swa start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+...or to run without the SWA wrapper and auth stuff
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Deploy
+
+```bash
+az login
+npx swa build
+npx swa deploy --app-name cyclops-site --env production
 ```
