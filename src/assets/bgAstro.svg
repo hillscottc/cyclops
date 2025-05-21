@@ -1,0 +1,348 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0028" />
+      <stop offset="100%" stop-color="#1a0054" />
+    </linearGradient>
+    
+    <!-- Star definitions -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Planet definitions -->
+    <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#fff176" />
+      <stop offset="80%" stop-color="#ff9800" />
+      <stop offset="100%" stop-color="#ff5722" />
+    </radialGradient>
+    
+    <radialGradient id="moonGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" stop-color="#f5f5f5" />
+      <stop offset="80%" stop-color="#e0e0e0" />
+      <stop offset="100%" stop-color="#bdbdbd" />
+    </radialGradient>
+    
+    <radialGradient id="venusGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" stop-color="#ffeb3b" />
+      <stop offset="100%" stop-color="#ffc107" />
+    </radialGradient>
+    
+    <radialGradient id="marsGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" stop-color="#ff5252" />
+      <stop offset="100%" stop-color="#d32f2f" />
+    </radialGradient>
+    
+    <radialGradient id="jupiterGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" stop-color="#ffcc80" />
+      <stop offset="100%" stop-color="#ff9800" />
+    </radialGradient>
+    
+    <radialGradient id="saturnGradient" cx="50%" cy="50%" r="50%" fx="40%" fy="40%">
+      <stop offset="0%" stop-color="#ffe0b2" />
+      <stop offset="100%" stop-color="#ffb74d" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#skyGradient)" />
+  
+  <!-- Random stars in background -->
+  <g id="stars">
+    <circle cx="50" cy="50" r="1" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="120" cy="80" r="1.5" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="40" r="1" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="300" cy="100" r="1.2" fill="white" filter="url(#glow)" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="380" cy="70" r="1" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="450" cy="120" r="1.3" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="520" cy="50" r="1" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="90" r="1.2" fill="white" filter="url(#glow)" opacity="0.6">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="680" cy="60" r="1" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="750" cy="110" r="1.4" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="70" cy="150" r="1" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="180" r="1.2" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="220" cy="130" r="1" fill="white" filter="url(#glow)" opacity="0.6">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="320" cy="190" r="1.3" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="150" r="1" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="480" cy="200" r="1.2" fill="white" filter="url(#glow)" opacity="0.6">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="550" cy="140" r="1" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="630" cy="170" r="1.4" fill="white" filter="url(#glow)" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="700" cy="130" r="1" fill="white" filter="url(#glow)" opacity="0.6">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="100" cy="250" r="1.2" fill="white" filter="url(#glow)" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Zodiac Wheel -->
+  <g id="zodiacWheel" transform="translate(400, 300)">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="#6a1b9a" stroke-width="3" opacity="0.4" />
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#7b1fa2" stroke-width="2" opacity="0.3" />
+    
+    <g id="rotatingZodiac">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="120s" repeatCount="indefinite" />
+      
+      <!-- Aries -->
+      <g transform="translate(0, -200) rotate(0)">
+        <path d="M0,0 L0,-20 M0,-10 L10,-20 M0,-10 L-10,-20" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♈</text>
+      </g>
+      
+      <!-- Taurus -->
+      <g transform="rotate(30) translate(0, -200)">
+        <circle cx="0" cy="-15" r="8" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <path d="M-8,-15 L8,-15" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♉</text>
+      </g>
+      
+      <!-- Gemini -->
+      <g transform="rotate(60) translate(0, -200)">
+        <path d="M-5,-20 L-5,0 M5,-20 L5,0 M-5,-10 L5,-10" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♊</text>
+      </g>
+      
+      <!-- Cancer -->
+      <g transform="rotate(90) translate(0, -200)">
+        <path d="M0,-20 A10,10 0 0 1 10,-10 A10,10 0 0 1 0,0 A10,10 0 0 1 -10,-10 A10,10 0 0 1 0,-20" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♋</text>
+      </g>
+      
+      <!-- Leo -->
+      <g transform="rotate(120) translate(0, -200)">
+        <circle cx="0" cy="-15" r="7" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <path d="M7,-15 C12,-15 12,-20 7,-20" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♌</text>
+      </g>
+      
+      <!-- Virgo -->
+      <g transform="rotate(150) translate(0, -200)">
+        <path d="M0,-20 L0,-5 C0,0 -10,0 -10,-5 C-10,-10 0,-10 0,-5" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♍</text>
+      </g>
+      
+      <!-- Libra -->
+      <g transform="rotate(180) translate(0, -200)">
+        <path d="M-10,-10 L10,-10 M0,-10 L0,-20 M-7,-5 L7,-5" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♎</text>
+      </g>
+      
+      <!-- Scorpio -->
+      <g transform="rotate(210) translate(0, -200)">
+        <path d="M-10,-15 L0,-15 L10,-5 M8,-5 L10,-5 L8,-3" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♏</text>
+      </g>
+      
+      <!-- Sagittarius -->
+      <g transform="rotate(240) translate(0, -200)">
+        <path d="M-10,-20 L10,0 M5,-5 L10,0 L5,5 M0,-10 L10,0" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♐</text>
+      </g>
+      
+      <!-- Capricorn -->
+      <g transform="rotate(270) translate(0, -200)">
+        <path d="M-5,-20 C0,-15 0,-10 -5,-5 C0,0 10,-5 10,-15" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♑</text>
+      </g>
+      
+      <!-- Aquarius -->
+      <g transform="rotate(300) translate(0, -200)">
+        <path d="M-10,-20 L-10,-10 C-10,-5 0,-5 0,-10 C0,-15 10,-15 10,-10 L10,0" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♒</text>
+      </g>
+      
+      <!-- Pisces -->
+      <g transform="rotate(330) translate(0, -200)">
+        <path d="M-10,-20 C-15,-10 -5,0 -10,5 M10,-20 C15,-10 5,0 10,5 M-10,-7.5 L10,-7.5" stroke="#d1c4e9" stroke-width="1.5" fill="none" />
+        <text x="0" y="15" font-family="Arial" font-size="12" fill="#d1c4e9" text-anchor="middle">♓</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Constellations -->
+  <g id="constellations">
+    <!-- Big Dipper -->
+    <g transform="translate(150, 450)">
+      <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="15" cy="-10" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="30" cy="-5" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="40" cy="10" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="30" cy="25" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="50" cy="30" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="70" cy="35" r="2" fill="white" filter="url(#glow)" />
+      
+      <path d="M0,0 L15,-10 L30,-5 L40,10 L30,25 L50,30 L70,35" stroke="#8e64ff" stroke-width="1" fill="none" opacity="0.6">
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite" />
+      </path>
+      
+      <text x="35" y="45" font-family="Arial" font-size="10" fill="#c8a9ff" text-anchor="middle">Ursa Major</text>
+    </g>
+    
+    <!-- Orion -->
+    <g transform="translate(600, 150)">
+      <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="10" cy="15" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="-10" cy="15" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="15" cy="40" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="-15" cy="40" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="0" cy="25" r="3" fill="#ff8a80" filter="url(#glow)" />
+      <circle cx="0" cy="60" r="2" fill="white" filter="url(#glow)" />
+      
+      <path d="M0,0 L10,15 L0,25 L-10,15 Z M0,25 L0,60 M0,25 L15,40 M0,25 L-15,40" stroke="#8e64ff" stroke-width="1" fill="none" opacity="0.6">
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+      </path>
+      
+      <text x="0" y="75" font-family="Arial" font-size="10" fill="#c8a9ff" text-anchor="middle">Orion</text>
+    </g>
+    
+    <!-- Cassiopeia -->
+    <g transform="translate(250, 150)">
+      <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="15" cy="10" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="30" cy="0" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="45" cy="15" r="2" fill="white" filter="url(#glow)" />
+      <circle cx="60" cy="5" r="2" fill="white" filter="url(#glow)" />
+      
+      <path d="M0,0 L15,10 L30,0 L45,15 L60,5" stroke="#8e64ff" stroke-width="1" fill="none" opacity="0.6">
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="7s" repeatCount="indefinite" />
+      </path>
+      
+      <text x="30" y="25" font-family="Arial" font-size="10" fill="#c8a9ff" text-anchor="middle">Cassiopeia</text>
+    </g>
+  </g>
+  
+  <!-- Planets -->
+  <g id="planets">
+    <!-- Sun -->
+    <g transform="translate(650, 450)">
+      <circle cx="0" cy="0" r="25" fill="url(#sunGradient)" filter="url(#glow)">
+        <animate attributeName="r" values="23;25;23" dur="4s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Sun rays -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite" />
+        <path d="M0,-30 L0,-40 M0,30 L0,40 M-30,0 L-40,0 M30,0 L40,0 M-21,-21 L-28,-28 M21,-21 L28,-28 M-21,21 L-28,28 M21,21 L28,28" stroke="#ffeb3b" stroke-width="2" opacity="0.7" />
+      </g>
+      
+      <text x="0" y="50" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Sun</text>
+    </g>
+    
+    <!-- Moon -->
+    <g transform="translate(120, 110)">
+      <circle cx="0" cy="0" r="15" fill="url(#moonGradient)" filter="url(#glow)" />
+      <circle cx="5" cy="-5" r="3" fill="#e0e0e0" opacity="0.3" />
+      <circle cx="-6" cy="2" r="4" fill="#e0e0e0" opacity="0.3" />
+      <circle cx="0" cy="6" r="3.5" fill="#e0e0e0" opacity="0.3" />
+      
+      <text x="0" y="30" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Moon</text>
+    </g>
+    
+    <!-- Venus -->
+    <g transform="translate(200, 350)">
+      <circle cx="0" cy="0" r="12" fill="url(#venusGradient)" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite" />
+      </circle>
+      
+      <text x="0" y="25" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Venus</text>
+    </g>
+    
+    <!-- Mars -->
+    <g transform="translate(550, 250)">
+      <circle cx="0" cy="0" r="10" fill="url(#marsGradient)" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite" />
+      </circle>
+      
+      <text x="0" y="25" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Mars</text>
+    </g>
+    
+    <!-- Jupiter -->
+    <g transform="translate(400, 120)">
+      <circle cx="0" cy="0" r="18" fill="url(#jupiterGradient)" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="7s" repeatCount="indefinite" />
+      </circle>
+      <ellipse cx="0" cy="-5" rx="18" ry="3" fill="none" stroke="#e65100" stroke-width="1" opacity="0.7" />
+      <ellipse cx="0" cy="0" rx="18" ry="3" fill="none" stroke="#e65100" stroke-width="1" opacity="0.7" />
+      <ellipse cx="0" cy="5" rx="18" ry="3" fill="none" stroke="#e65100" stroke-width="1" opacity="0.7" />
+      
+      <text x="0" y="35" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Jupiter</text>
+    </g>
+    
+    <!-- Saturn -->
+    <g transform="translate(300, 500)">
+      <circle cx="0" cy="0" r="15" fill="url(#saturnGradient)" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="8s" repeatCount="indefinite" />
+      </circle>
+      <ellipse cx="0" cy="0" rx="25" ry="5" fill="none" stroke="#ffd54f" stroke-width="2" opacity="0.8" transform="rotate(-10)" />
+      
+      <text x="0" y="30" font-family="Arial" font-size="14" fill="#ffe0b2" text-anchor="middle">Saturn</text>
+    </g>
+  </g>
+  
+  <!-- Title -->
+  <g id="title" transform="translate(400, 40)">
+    <text x="0" y="0" font-family="Arial" font-size="28" font-weight="bold" fill="#e1bee7" text-anchor="middle" filter="url(#glow)">
+      Cosmic Horoscope
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite" />
+    </text>
+    <text x="0" y="30" font-family="Arial" font-size="16" fill="#b39ddb" text-anchor="middle">
+      Zodiac Signs and Celestial Bodies
+    </text>
+  </g>
+  
+  <!-- Animated shooting star -->
+  <g id="shootingStar">
+    <path d="M-10,0 L30,0" stroke="white" stroke-width="2" stroke-linecap="round" filter="url(#glow)">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s" />
+    </path>
+    
+    <animateMotion path="M800,100 L-100,350" dur="3s" repeatCount="indefinite" begin="1s" />
+  </g>
+  
+  <g id="shootingStar2">
+    <path d="M-5,0 L20,0" stroke="white" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)">
+      <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="5s" />
+    </path>
+    
+    <animateMotion path="M750,200 L-50,280" dur="4s" repeatCount="indefinite" begin="5s" />
+  </g>
+</svg>
