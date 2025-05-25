@@ -7,7 +7,7 @@ The backend is built on Azure, implemented as a [Static Web App](https://azure.m
 
 It is tooled as an [Azure Static Web App](https://azure.microsoft.com/en-us/products/app-service/static), mainly to allows server-side routes and auth via `staticwebapp.config.json`.
 
-The frontend is a typescript [React](https://react.dev) app tooled with [Vite](https://vite.dev). Single page architecture with [React Router](https://reactrouter.com/). The styling is [MUI](https://mui.com).
+The frontend is a typescript [React](https://react.dev) app tooled with [Vite](https://vite.dev). Single page architecture with [React Router](https://reactrouter.com/).
 
 ## Build
 
