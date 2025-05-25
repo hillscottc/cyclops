@@ -5,9 +5,9 @@ It's a responsive design -- will look good on desktop or phone.
 
 The backend is built on Azure, implemented as a [Static Web App](https://azure.microsoft.com/en-us/products/app-service/static) tooled with [swa cli](https://azure.github.io/static-web-apps-cli/).
 
-It is tooled as an [Azure Static Web App](https://azure.microsoft.com/en-us/products/app-service/static), mainly to allows server-side routes and auth via `staticwebapp.config.json`.
+It is tooled as an [Azure Static Web App](https://azure.microsoft.com/en-us/products/app-service/static), mainly to allows server-side routes and auth via [staticwebapp.config.json](/blob/main/staticwebapp.config.json).
 
-The frontend is a typescript [React](https://react.dev) app tooled with [Vite](https://vite.dev). Single page architecture with [React Router](https://reactrouter.com/).
+The frontend is a typescript [React](https://react.dev) app tooled with [Vite](https://vite.dev).
 
 ## Build
 

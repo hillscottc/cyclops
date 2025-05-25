@@ -138,7 +138,9 @@ function App() {
           astrology
         </a>
         &nbsp; © {new Date().getFullYear()} by Scott C Hill,&nbsp;
-        <a href="https://github.com/hillscottc/cyclops">Source on Github</a>
+        <a href="https://github.com/hillscottc/cyclops" target="_blank">
+          source code
+        </a>
       </footer>
     </div>
   );
