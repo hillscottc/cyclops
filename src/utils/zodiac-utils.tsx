@@ -1,17 +1,19 @@
-export enum ZodiacSign {
-  Aries = "Aries",
-  Taurus = "Taurus",
-  Gemini = "Gemini",
-  Cancer = "Cancer",
-  Leo = "Leo",
-  Virgo = "Virgo",
-  Libra = "Libra",
-  Scorpio = "Scorpio",
-  Sagittarius = "Sagittarius",
-  Capricorn = "Capricorn",
-  Aquarius = "Aquarius",
-  Pisces = "Pisces",
-}
+export const ZodiacSign = {
+  Aries: "Aries",
+  Taurus: "Taurus",
+  Gemini: "Gemini",
+  Cancer: "Cancer",
+  Leo: "Leo",
+  Virgo: "Virgo",
+  Libra: "Libra",
+  Scorpio: "Scorpio",
+  Sagittarius: "Sagittarius",
+  Capricorn: "Capricorn",
+  Aquarius: "Aquarius",
+  Pisces: "Pisces",
+} as const;
+
+export type ZodiacSign = (typeof ZodiacSign)[keyof typeof ZodiacSign];
 
 /**
  * Returns the emoji representation of a zodiac sign.
