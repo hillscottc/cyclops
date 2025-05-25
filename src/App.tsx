@@ -30,7 +30,7 @@ function App() {
       {!isLoading && !chatResults && (
         <section className="astro">
           <form className="astro-form" onSubmit={handleSubmit}>
-            <label htmlFor="zodiac-sign" className="astro-label">
+            <label htmlFor="zodiac-sign" className="zodiac-label">
               ✨ Zodiac Sign ✨
             </label>
             <div style={{ position: "relative", display: "inline-block" }}>

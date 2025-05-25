@@ -141,9 +141,15 @@ button:focus-visible {
 
 .zodiac-sign {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 4rem;
   color: #8e44ad;
-  text-shadow: 2px 2px 8px #d2b4de;
+  text-shadow: 0 1px 4px rgba(142, 68, 173, 0.5);
+}
+
+@media (max-width: 600px) {
+  .zodiac-sign {
+    font-size: 2rem;
+  }
 }
 
 .zodiac-label {
@@ -153,5 +159,5 @@ button:focus-visible {
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
   display: block;
-  text-shadow: 0 1px 4px #e0c3fc;
+  text-shadow: 0 1px 4px rgba(142, 68, 173, 0.5);
 }
