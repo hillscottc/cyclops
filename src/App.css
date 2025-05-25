@@ -145,9 +145,13 @@ footer {
   margin: 0;
 }
 
-/* .pulldown-container {
+.pulldown-container {
   min-width: 7rem;
-} */
+
+  div {
+    position: relative;
+  }
+}
 
 .pulldown-pointer {
   pointer-events: none;
@@ -156,7 +160,7 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   font-size: 1em;
-  color: #555;
+  color: #888;
 }
 
 .zodiac-sign {

@@ -43,7 +43,7 @@ function App() {
                 {/* Sign */}
 
                 <div className="pulldown-container">
-                  <div style={{ position: "relative" }}>
+                  <div>
                     <select
                       id="zodiac-sign"
                       name="zodiac-sign"
@@ -65,25 +65,13 @@ function App() {
                         </option>
                       ))}
                     </select>
-                    <span
-                      style={{
-                        pointerEvents: "none",
-                        position: "absolute",
-                        right: "0.75em",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        fontSize: "1em",
-                        color: "#888",
-                      }}
-                    >
-                      ▼
-                    </span>
+                    <span className="pulldown-pointer">▼</span>
                   </div>
                 </div>
 
                 {/* Narrative */}
                 <div className="pulldown-container">
-                  <div style={{ position: "relative" }}>
+                  <div>
                     <select
                       id="narrative"
                       name="narrative"
@@ -99,19 +87,7 @@ function App() {
                         </option>
                       ))}
                     </select>
-                    <span
-                      style={{
-                        pointerEvents: "none",
-                        position: "absolute",
-                        right: "0.75em",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        fontSize: "1em",
-                        color: "#888",
-                      }}
-                    >
-                      ▼
-                    </span>
+                    <span className="pulldown-pointer">▼</span>
                   </div>
                 </div>
               </div>
