@@ -127,6 +127,8 @@ footer {
     cursor: pointer;
     padding: 10px;
     appearance: none;
+    min-width: -webkit-fill-available;
+    /* width: inherit; */
   }
 }
 
@@ -142,6 +144,10 @@ footer {
   transition: background-color 0.2s, box-shadow 0.2s;
   margin: 0;
 }
+
+/* .pulldown-container {
+  min-width: 7rem;
+} */
 
 .pulldown-pointer {
   pointer-events: none;

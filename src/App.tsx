@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { fetchChat } from "./utils/helpers";
-import { getZodiacSignEmoji, ZodiacSign } from "./utils/zodiac-utils";
+import {
+  getZodiacSignEmoji,
+  Narrative,
+  ZodiacSign,
+} from "./utils/zodiac-utils";
 import "./App.css";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [chatResults, setChatResults] = useState("");
   const [zodiac, setZodiac] = useState("Aries");
+  const [narrative, setNarrative] = useState<Narrative>(Narrative.General);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,22 +40,80 @@ function App() {
                 ✨ Zodiac ✨
               </label>
               <div style={{ position: "relative", display: "inline-block" }}>
-                <select
-                  id="zodiac-sign"
-                  name="zodiac-sign"
-                  defaultValue="Aries"
-                  onChange={(e) => setZodiac(e.target.value)}
-                  required
-                >
-                  {Object.values(ZodiacSign).map((sign) => (
-                    <option key={sign} value={sign}>
-                      {getZodiacSignEmoji(sign)}
-                    </option>
-                  ))}
-                </select>
-                <span className="pulldown-pointer" aria-hidden="true">
-                  ▼
-                </span>
+                {/* Sign */}
+
+                <div className="pulldown-container">
+                  <div style={{ position: "relative" }}>
+                    <select
+                      id="zodiac-sign"
+                      name="zodiac-sign"
+                      defaultValue="Aries"
+                      onChange={(e) => setZodiac(e.target.value)}
+                      required
+                      style={{
+                        appearance: "none",
+                        WebkitAppearance: "none",
+                        MozAppearance: "none",
+                        paddingRight: "2em",
+                        background: "none",
+                        width: "100%",
+                      }}
+                    >
+                      {Object.values(ZodiacSign).map((sign) => (
+                        <option key={sign} value={sign}>
+                          {getZodiacSignEmoji(sign)}
+                        </option>
+                      ))}
+                    </select>
+                    <span
+                      style={{
+                        pointerEvents: "none",
+                        position: "absolute",
+                        right: "0.75em",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        fontSize: "1em",
+                        color: "#888",
+                      }}
+                    >
+                      ▼
+                    </span>
+                  </div>
+                </div>
+
+                {/* Narrative */}
+                <div className="pulldown-container">
+                  <div style={{ position: "relative" }}>
+                    <select
+                      id="narrative"
+                      name="narrative"
+                      defaultValue={Narrative.General}
+                      onChange={(e) =>
+                        setNarrative(e.target.value as Narrative)
+                      }
+                      required
+                    >
+                      {Object.values(Narrative).map((narrative) => (
+                        <option key={narrative} value={narrative}>
+                          {narrative}
+                        </option>
+                      ))}
+                    </select>
+                    <span
+                      style={{
+                        pointerEvents: "none",
+                        position: "absolute",
+                        right: "0.75em",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        fontSize: "1em",
+                        color: "#888",
+                      }}
+                    >
+                      ▼
+                    </span>
+                  </div>
+                </div>
               </div>
               <button className="form-button" type="submit">
                 Consult the Stars
