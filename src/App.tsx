@@ -54,14 +54,6 @@ function App() {
                       defaultValue="Aries"
                       onChange={(e) => setZodiac(e.target.value)}
                       required
-                      style={{
-                        appearance: "none",
-                        WebkitAppearance: "none",
-                        MozAppearance: "none",
-                        paddingRight: "2em",
-                        background: "none",
-                        width: "100%",
-                      }}
                     >
                       {Object.values(ZodiacSign).map((sign) => (
                         <option key={sign} value={sign}>
@@ -113,9 +105,17 @@ function App() {
             <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
             <div className="chatResults">{chatResults}</div>
 
-            {/* <div>
+            <div style={{ marginTop: "1rem" }}>
               <button
                 className="form-button"
+                onClick={() => setChatResults("")}
+              >
+                Inquire Again
+              </button>
+            </div>
+
+            <div className="save-button-container">
+              <button
                 onClick={() => {
                   const blob = new Blob([chatResults], { type: "text/plain" });
                   const url = URL.createObjectURL(blob);
@@ -128,23 +128,17 @@ function App() {
               >
                 Save Horoscope
               </button>
-            </div> */}
-
-            <div style={{ marginTop: 0 }}>
-              <button
-                className="form-button"
-                onClick={() => setChatResults("")}
-              >
-                Inquire Again
-              </button>
             </div>
           </section>
         )}
       </div>
 
       <footer>
-        © {new Date().getFullYear()} by Scott C Hill,&nbsp;
-        <a href="https://github.com/hillscottc/cyclops">source on github</a>
+        <a href="https://en.wikipedia.org/wiki/Astrology" target="_blank">
+          astrology
+        </a>
+        &nbsp; © {new Date().getFullYear()} by Scott C Hill,&nbsp;
+        <a href="https://github.com/hillscottc/cyclops">Source on Github</a>
       </footer>
     </div>
   );

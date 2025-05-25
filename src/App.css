@@ -144,9 +144,41 @@ footer {
   transition: background-color 0.2s, box-shadow 0.2s;
   margin: 0;
 }
+.save-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+
+  button {
+    padding: 0.5rem 0.75rem;
+    background-color: #a7a4df;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    margin: 0;
+  }
+}
+
+/* .save-button {
+  padding: 0.5rem 0.75rem;
+  background-color: #a7a4df;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  margin: 0;
+} */
 
 .pulldown-container {
-  min-width: 7rem;
+  min-width: 10rem;
 
   div {
     position: relative; /* Ensures the pointer is positioned correctly */
