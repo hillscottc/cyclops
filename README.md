@@ -1,4 +1,4 @@
-This is a demo project.
+A demo Horoscope app
 
 Deployed at https://orange-grass-09360bb10.6.azurestaticapps.net
 It's a responsive design -- will look good on desktop or phone.

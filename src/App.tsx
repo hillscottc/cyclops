@@ -26,55 +26,84 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {!isLoading && !chatResults && (
-        <section className="astro">
-          <form className="astro-form" onSubmit={handleSubmit}>
-            <label htmlFor="zodiac-sign" className="zodiac-label">
-              ✨ Zodiac Sign ✨
-            </label>
-            <div style={{ position: "relative", display: "inline-block" }}>
-              <select
-                id="zodiac-sign"
-                name="zodiac-sign"
-                defaultValue="Aries"
-                onChange={(e) => setZodiac(e.target.value)}
-                required
+    <div
+      className="App"
+      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+    >
+      <div style={{ flex: 1 }}>
+        {!isLoading && !chatResults && (
+          <section className="astro">
+            <form className="astro-form" onSubmit={handleSubmit}>
+              <label htmlFor="zodiac-sign" className="zodiac-label">
+                ✨ Zodiac ✨
+              </label>
+              <div style={{ position: "relative", display: "inline-block" }}>
+                <select
+                  id="zodiac-sign"
+                  name="zodiac-sign"
+                  defaultValue="Aries"
+                  onChange={(e) => setZodiac(e.target.value)}
+                  required
+                >
+                  {Object.values(ZodiacSign).map((sign) => (
+                    <option key={sign} value={sign}>
+                      {getZodiacSignEmoji(sign)}
+                    </option>
+                  ))}
+                </select>
+                <span className="pulldown-pointer" aria-hidden="true">
+                  ▼
+                </span>
+              </div>
+              <button className="form-button" type="submit">
+                Consult the Stars
+              </button>
+            </form>
+          </section>
+        )}
+
+        {isLoading && (
+          <section>
+            <div className="chatResults">Thinking...</div>
+          </section>
+        )}
+
+        {chatResults && (
+          <section>
+            <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
+            <div className="chatResults">{chatResults}</div>
+            <div>
+              <button
+                className="form-button"
+                onClick={() => {
+                  const blob = new Blob([chatResults], { type: "text/plain" });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `${zodiac}-horoscope.txt`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                }}
               >
-                {Object.values(ZodiacSign).map((sign) => (
-                  <option key={sign} value={sign}>
-                    {getZodiacSignEmoji(sign)}
-                  </option>
-                ))}
-              </select>
-              <span className="pulldown-pointer" aria-hidden="true">
-                ▼
-              </span>
+                Save Horoscope
+              </button>
             </div>
-            <button className="form-button" type="submit">
-              Consult the Stars
-            </button>
-          </form>
-        </section>
-      )}
+            <div style={{ marginTop: 0 }}>
+              <button
+                className="form-button"
+                onClick={() => setChatResults("")}
+              >
+                Inquire Again
+              </button>
+            </div>
+          </section>
+        )}
+      </div>
 
-      {isLoading && (
-        <section>
-          <div>Thinking...</div>
-        </section>
-      )}
-
-      {chatResults && (
-        <section>
-          <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
-          <div>{chatResults}</div>
-          <div style={{ marginTop: "1rem" }}>
-            <button className="form-button" onClick={() => setChatResults("")}>
-              Inquire Again
-            </button>
-          </div>
-        </section>
-      )}
+      <footer>
+        © {new Date().getFullYear()} by Scott C Hill,&nbsp;
+        <a href="https://github.com/hillscottc/cyclops">source on github</a>
+      </footer>
     </div>
   );
 }
