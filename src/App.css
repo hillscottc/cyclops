@@ -24,11 +24,8 @@ a:hover {
 
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-  /* max-width: "800px"; */
 }
 
 h1 {
@@ -86,6 +83,7 @@ button:focus-visible {
     padding: 3em;
     max-width: 70rem;
     min-width: 50vw;
+    flex-direction: column;
   }
 }
 
@@ -117,18 +115,18 @@ button:focus-visible {
     padding: 10px;
     appearance: none;
   }
+}
 
-  button {
-    padding: 0.75rem 1rem;
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
-    transition: background-color 0.2s, box-shadow 0.2s;
-  }
+.form-button {
+  padding: 0.75rem 1rem;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .pulldown-pointer {
@@ -139,4 +137,21 @@ button:focus-visible {
   transform: translateY(-50%);
   font-size: 1em;
   color: #555;
+}
+
+.zodiac-sign {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #8e44ad;
+  text-shadow: 2px 2px 8px #d2b4de;
+}
+
+.zodiac-label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #7b2ff2;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-shadow: 0 1px 4px #e0c3fc;
 }

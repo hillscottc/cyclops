@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { fetchChat } from "./utils/helpers";
+import { getZodiacSignEmoji, ZodiacSign } from "./utils/zodiac-utils";
 import "./App.css";
-import { fetchChat } from "./helpers";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,37 +27,36 @@ function App() {
 
   return (
     <div className="App">
-      <section className="astro">
-        <form className="astro-form" onSubmit={handleSubmit}>
-          <label htmlFor="zodiac-sign">Zodiac Sign</label>
-          <div style={{ position: "relative", display: "inline-block" }}>
-            <select
-              id="zodiac-sign"
-              name="zodiac-sign"
-              defaultValue="Aries"
-              onChange={(e) => setZodiac(e.target.value)}
-              required
-            >
-              <option value="Aries">♈ Aries</option>
-              <option value="Taurus">♉ Taurus</option>
-              <option value="Gemini">♊ Gemini</option>
-              <option value="Cancer">♋ Cancer</option>
-              <option value="Leo">♌ Leo</option>
-              <option value="Virgo">♍ Virgo</option>
-              <option value="Libra">♎ Libra</option>
-              <option value="Scorpio">♏ Scorpio</option>
-              <option value="Sagittarius">♐ Sagittarius</option>
-              <option value="Capricorn">♑ Capricorn</option>
-              <option value="Aquarius">♒ Aquarius</option>
-              <option value="Pisces">♓ Pisces</option>
-            </select>
-            <span className="pulldown-pointer" aria-hidden="true">
-              ▼
-            </span>
-          </div>
-          <button type="submit">Consult the Stars</button>
-        </form>
-      </section>
+      {!isLoading && !chatResults && (
+        <section className="astro">
+          <form className="astro-form" onSubmit={handleSubmit}>
+            <label htmlFor="zodiac-sign" className="astro-label">
+              ✨ Zodiac Sign ✨
+            </label>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <select
+                id="zodiac-sign"
+                name="zodiac-sign"
+                defaultValue="Aries"
+                onChange={(e) => setZodiac(e.target.value)}
+                required
+              >
+                {Object.values(ZodiacSign).map((sign) => (
+                  <option key={sign} value={sign}>
+                    {getZodiacSignEmoji(sign)}
+                  </option>
+                ))}
+              </select>
+              <span className="pulldown-pointer" aria-hidden="true">
+                ▼
+              </span>
+            </div>
+            <button className="form-button" type="submit">
+              Consult the Stars
+            </button>
+          </form>
+        </section>
+      )}
 
       {isLoading && (
         <section>
@@ -66,7 +66,13 @@ function App() {
 
       {chatResults && (
         <section>
+          <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
           <div>{chatResults}</div>
+          <div style={{ marginTop: "1rem" }}>
+            <button className="form-button" onClick={() => setChatResults("")}>
+              Inquire Again
+            </button>
+          </div>
         </section>
       )}
     </div>
