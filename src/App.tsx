@@ -29,33 +29,43 @@ function App() {
       <section className="astro">
         <form className="astro-form" onSubmit={handleSubmit}>
           <label htmlFor="zodiac-sign">Zodiac Sign</label>
-          <select
-            id="zodiac-sign"
-            name="zodiac-sign"
-            defaultValue="Aries"
-            onChange={(e) => setZodiac(e.target.value)}
-          >
-            <option value="Aries">Aries</option>
-            <option value="Taurus">Taurus</option>
-            <option value="Gemini">Gemini</option>
-            <option value="Cancer">Cancer</option>
-            <option value="Leo">Leo</option>
-            <option value="Virgo">Virgo</option>
-            <option value="Libra">Libra</option>
-            <option value="Scorpio">Scorpio</option>
-            <option value="Sagittarius">Sagittarius</option>
-            <option value="Capricorn">Capricorn</option>
-            <option value="Aquarius">Aquarius</option>
-            <option value="Pisces">Pisces</option>
-          </select>
+          <div style={{ position: "relative", display: "inline-block" }}>
+            <select
+              id="zodiac-sign"
+              name="zodiac-sign"
+              defaultValue="Aries"
+              onChange={(e) => setZodiac(e.target.value)}
+              required
+            >
+              <option value="Aries">♈ Aries</option>
+              <option value="Taurus">♉ Taurus</option>
+              <option value="Gemini">♊ Gemini</option>
+              <option value="Cancer">♋ Cancer</option>
+              <option value="Leo">♌ Leo</option>
+              <option value="Virgo">♍ Virgo</option>
+              <option value="Libra">♎ Libra</option>
+              <option value="Scorpio">♏ Scorpio</option>
+              <option value="Sagittarius">♐ Sagittarius</option>
+              <option value="Capricorn">♑ Capricorn</option>
+              <option value="Aquarius">♒ Aquarius</option>
+              <option value="Pisces">♓ Pisces</option>
+            </select>
+            <span className="pulldown-pointer" aria-hidden="true">
+              ▼
+            </span>
+          </div>
           <button type="submit">Consult the Stars</button>
         </form>
       </section>
 
+      {isLoading && (
+        <section>
+          <div>Thinking...</div>
+        </section>
+      )}
+
       {chatResults && (
         <section>
-          {isLoading && <div>Thinking...</div>}
-
           <div>{chatResults}</div>
         </section>
       )}

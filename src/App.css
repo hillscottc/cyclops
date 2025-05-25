@@ -90,7 +90,7 @@ button:focus-visible {
 }
 
 .astro {
-  border: 1px solid #646cff;
+  border: 10px solid green;
 }
 
 .astro-form {
@@ -99,4 +99,44 @@ button:focus-visible {
   gap: 1em;
   width: 100%;
   align-items: center;
+
+  select {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: px solid #6c63ff;
+    background: linear-gradient(90deg, #f3f3f3 0%, #e0e7ff 100%);
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(48, 47, 68, 0.08);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin: 0.5rem 0 1rem 0;
+    appearance: none;
+    cursor: pointer;
+    padding: 10px;
+    appearance: none;
+  }
+
+  button {
+    padding: 0.75rem 1rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+}
+
+.pulldown-pointer {
+  pointer-events: none;
+  position: absolute;
+  right: 0.75em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #555;
 }
