@@ -26,10 +26,7 @@ function App() {
   };
 
   return (
-    <div
-      className="App"
-      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
-    >
+    <div className="App">
       <div style={{ flex: 1 }}>
         {!isLoading && !chatResults && (
           <section className="astro">

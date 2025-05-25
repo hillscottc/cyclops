@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* height: 100vh; */
 }
 
 a {
@@ -25,7 +26,7 @@ a:hover {
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1 {
@@ -81,6 +82,7 @@ footer {
   gap: 1em;
   padding: 2em;
   background-color: lightgray;
+  min-height: 95vh;
 
   section {
     display: flex;
@@ -138,7 +140,7 @@ footer {
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
   transition: background-color 0.2s, box-shadow 0.2s;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0;
 }
 
 .pulldown-pointer {
