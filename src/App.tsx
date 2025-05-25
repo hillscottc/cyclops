@@ -16,7 +16,11 @@ function App() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const content = `Give me today's horoscope for ${zodiac}.`;
+    const content = `Give me today's horoscope for ${zodiac} ${
+      narrative != Narrative.General ? `in the context of ${narrative}` : ""
+    }.`;
+
+    console.log("Content to send:", content);
 
     try {
       setIsLoading(true);
@@ -108,7 +112,8 @@ function App() {
           <section>
             <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
             <div className="chatResults">{chatResults}</div>
-            <div>
+
+            {/* <div>
               <button
                 className="form-button"
                 onClick={() => {
@@ -123,7 +128,8 @@ function App() {
               >
                 Save Horoscope
               </button>
-            </div>
+            </div> */}
+
             <div style={{ marginTop: 0 }}>
               <button
                 className="form-button"
