@@ -49,7 +49,7 @@ export const Narrative = {
 
 export type Narrative = (typeof Narrative)[keyof typeof Narrative];
 
-export const zodiacGeneralNarratives: string[] = [
+const zodiacGeneralNarratives: string[] = [
   "The constellations have taken their places, and the heavens hold their breath. As the moon wanes and Mars hums with untamed force, the astral tides turn toward revelation. Let us now peer through the veil of time and truth…",
   "As I cast my gaze across the celestial dome, I see that Mercury whispers secrets in shadow while Neptune stirs dreams in the deep. The wheel of fate creaks forward — and your path begins to glow…",
   "Tonight, the zodiac sings in strange harmony. The signs align like ancient runes unlocking a forgotten door. I can feel the pull — your energy is entangled in something much larger than you know…",
@@ -62,7 +62,7 @@ export const zodiacGeneralNarratives: string[] = [
   "From the murmur of ancient planets to the glitter of newborn stars, the heavens have conspired to create this moment. The signs are clear, if you know how to read between the constellations…",
 ];
 
-export const zodiacLoveNarratives: string[] = [
+const zodiacLoveNarratives: string[] = [
   "As Venus rises in her silk-draped orbit and the moon sighs through the House of Passion, the stars shimmer with whispers of love. Your heart’s journey is written in constellations…",
   "The cosmos leans close tonight, intoxicated by the perfume of possibility. Under this celestial canopy, desire blooms where fate and feeling entwine…",
   "Love moves in mysterious rhythms, and tonight, the planets dance in tender alignment. A magnetic pull hums through the zodiac — your heart is calling, and the universe is listening…",
@@ -75,7 +75,7 @@ export const zodiacLoveNarratives: string[] = [
   "The stars have conspired in secret, crafting moments of serendipity in silver threads. Something — or someone — is aligning with your energy, drawn by an invisible tether of the heart…",
 ];
 
-export const zodiacCareerNarratives: string[] = [
+const zodiacCareerNarratives: string[] = [
   "The constellations align, and the universe whispers of new beginnings. Your career path is illuminated by the stars, revealing opportunities that await your bold step forward…",
   "As Saturn casts its steady gaze and Jupiter expands horizons, the cosmos beckons you to seize the moment. A shift is coming — one that could redefine your professional journey…",
   "The heavens hum with potential, and the zodiac wheel turns toward ambition. Your work life is about to enter a new phase, guided by unseen forces and cosmic timing…",
@@ -88,7 +88,7 @@ export const zodiacCareerNarratives: string[] = [
   "With the moon waxing in your favor, now is the time to set intentions for your career. The stars are aligning to support your ambitions — all you need to do is take that first step…",
 ];
 
-export const zodiacWealthNarratives: string[] = [
+const zodiacWealthNarratives: string[] = [
   "As Jupiter stretches wide across the House of Fortune and Saturn bestows the fruits of discipline, the stars gleam with golden intent. The currents of abundance are shifting — and you are in their path…",
   "The heavens pulse with prosperity as Mercury sharpens your instincts and Venus sweetens the flow of fortune. The seeds of wealth are ready to sprout beneath your footsteps…",
   "A rare alignment opens the vault of the cosmos. The planets whisper in currencies of opportunity — and your chart glows with the promise of success long overdue…",
@@ -100,7 +100,7 @@ export const zodiacWealthNarratives: string[] = [
   "The planets form a sacred triangle of manifestation, and the gates of gain swing open. If you listen closely, you’ll hear the echo of your future counting itself in coin and opportunity…",
   "As Venus blesses your house of value and Pluto transforms your mindset around wealth, the universe prepares to overflow your cup. You are not chasing prosperity — it’s finding its way to you…",
 ];
-export const zodiacHealthNarratives: string[] = [
+const zodiacHealthNarratives: string[] = [
   "The stars align to illuminate your well-being, casting a gentle glow on the path to vitality. The universe whispers of balance, urging you to listen to your body’s needs…",
   "As the moon waxes in your health sector, the cosmos encourages renewal and rejuvenation. It’s time to shed what no longer serves you and embrace a healthier way of being…",
   "The celestial energies are shifting, bringing clarity to your physical and mental state. The universe is guiding you toward habits that nourish both body and soul…",
@@ -113,7 +113,7 @@ export const zodiacHealthNarratives: string[] = [
   "The zodiac whispers of renewal and vitality as the stars align in your favor. It’s time to prioritize your health and well-being — the universe is ready to support you on this journey…",
 ];
 
-export const zodiacWisdomNarratives: string[] = [
+const zodiacWisdomNarratives: string[] = [
   "As Mercury aligns with the North Node and Neptune swims through the deep waters of intuition, the cosmos opens its ancient library. The answers you seek are already within — let’s unlock them together…",
   "Tonight, the stars do not shout — they whisper. Saturn, the great teacher, stands watchful, while Jupiter expands your mind’s horizon. A lesson is unfolding, and it’s wrapped in starlight…",
   "The universe has tilted toward revelation. As Uranus stirs flashes of genius and the moon gazes inward, your soul stands at the threshold of understanding…",
@@ -125,3 +125,17 @@ export const zodiacWisdomNarratives: string[] = [
   "As the lunar nodes shift across your intellectual axis, your soul begins to remember what the mind has forgotten. The stars speak not in facts — but in truths that resonate…",
   "The universe speaks in symbols, and you are ready to understand them. The veil lifts, and with it comes the kind of wisdom that changes how you walk through the world…",
 ];
+
+export const zodiacNarratives: { [key in Narrative]: string[] } = {
+  [Narrative.General]: zodiacGeneralNarratives,
+  [Narrative.Love]: zodiacLoveNarratives,
+  [Narrative.Career]: zodiacCareerNarratives,
+  [Narrative.Wealth]: zodiacWealthNarratives,
+  [Narrative.Health]: zodiacHealthNarratives,
+  [Narrative.Wisdom]: zodiacWisdomNarratives,
+};
+
+export function getRandomNarrative(narrative: Narrative): string {
+  const narratives = zodiacNarratives[narrative];
+  return narratives[Math.floor(Math.random() * narratives.length)];
+}

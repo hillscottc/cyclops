@@ -184,14 +184,14 @@ footer {
 
 .zodiac-sign {
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 2rem;
   color: #8e44ad;
   text-shadow: 0 1px 4px rgba(142, 68, 173, 0.5);
 }
 
 @media (max-width: 600px) {
   .zodiac-sign {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 
@@ -207,4 +207,22 @@ footer {
 
 .chatResults {
   font-size: large;
+}
+
+.resultsHeading {
+  font-family: "Cinzel Decorative", cursive, serif;
+  font-size: 2.5rem;
+  color: #e0c97f;
+  letter-spacing: 0.1em;
+  background: linear-gradient(90deg, #f7e7b7 0%, #cbb26a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  width: max-content;
+  padding: 0;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 }

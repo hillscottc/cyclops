@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fetchChat } from "./utils/helpers";
 import {
+  getRandomNarrative,
   getZodiacSignEmoji,
   Narrative,
   ZodiacSign,
@@ -20,11 +21,15 @@ function App() {
       narrative != Narrative.General ? `in the context of ${narrative}` : ""
     }.`;
 
-    console.log("Content to send:", content);
+    // console.log("Content to send:", content);
 
     try {
-      setIsLoading(true);
       setChatResults("");
+
+      setIsLoading(true);
+      // pause for a moment to simulate thinking
+      await new Promise((resolve) => setTimeout(resolve, 6000));
+
       const chatResponse = await fetchChat({ content });
       setChatResults(() => chatResponse || "");
       setIsLoading(false);
@@ -96,12 +101,16 @@ function App() {
 
         {isLoading && (
           <section>
-            <div className="chatResults">Thinking...</div>
+            <div className="chatResults">
+              {getRandomNarrative(narrative)}
+              <p>Thinking...</p>
+            </div>
           </section>
         )}
 
         {chatResults && (
           <section>
+            <div className="resultsHeading">✨the stars reveal...✨</div>
             <div className="zodiac-sign">{getZodiacSignEmoji(zodiac)}</div>
             <div className="chatResults">{chatResults}</div>
 
