@@ -1,73 +1,64 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import bgAstro from "./assets/bgAstro.svg";
 import "./App.css";
-import { getWeather } from "./helpers";
+import { fetchChat } from "./helpers";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [weatherData, setWeatherData] = useState<string | undefined>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [chatResults, setChatResults] = useState("");
+  const [zodiac, setZodiac] = useState("Aries");
 
-  const data = "";
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const content = `Give me today's horoscope for ${zodiac}.`;
+
+    try {
+      setIsLoading(true);
+      setChatResults("");
+      const chatResponse = await fetchChat({ content });
+      setChatResults(() => chatResponse || "");
+      setIsLoading(false);
+    } catch (error) {
+      setChatResults(`Error: ${error}`);
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <div
-      className="bgImage"
-      style={{
-        backgroundImage: `url(${bgAstro})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        width: "100vw",
-        zIndex: -1,
-      }}
-    >
-      <section>
-        {/* <button onClick={() => setCount((count) => count + 1)}>go</button> */}
-        if (data)
-        {
-          <div>
-            <h1>Data:</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </div>
-        }
+    <div className="App">
+      <section className="astro">
+        <form className="astro-form" onSubmit={handleSubmit}>
+          <label htmlFor="zodiac-sign">Zodiac Sign</label>
+          <select
+            id="zodiac-sign"
+            name="zodiac-sign"
+            defaultValue="Aries"
+            onChange={(e) => setZodiac(e.target.value)}
+          >
+            <option value="Aries">Aries</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Leo">Leo</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Libra">Libra</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Capricorn">Capricorn</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Pisces">Pisces</option>
+          </select>
+          <button type="submit">Consult the Stars</button>
+        </form>
       </section>
 
-      <section>
-        <h3>Weather</h3>
-        <button
-          onClick={async () => {
-            const result = await getWeather("90008");
-            setWeatherData(result);
-          }}
-        >
-          Get Weather
-        </button>
-        if (weatherData)
-        {
-          <div>
-            <h1>{weatherData}</h1>
-          </div>
-        }
-      </section>
+      {chatResults && (
+        <section>
+          {isLoading && <div>Thinking...</div>}
 
-      {/* the old vite stuff */}
-      {/* <section>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
-      </section> */}
+          <div>{chatResults}</div>
+        </section>
+      )}
     </div>
   );
 }

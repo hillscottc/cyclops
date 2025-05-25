@@ -1,25 +1,22 @@
-// hello
 import { useState, useEffect } from "react";
+import OpenAI from "openai";
 
-/**
- * Generate a URL for fetching horoscope data from 'horoscope-app-api.vercel.app' api
- * @param {string} kind - The type of horoscope (e.g., "daily", "weekly").
- * @param {string} when - The time for the horoscope (e.g., "TODAY", "TOMORROW").
- * @param {string} sign - The zodiac sign (e.g., "Leo").
- * @returns {string} The generated URL for fetching horoscope data.
- */
-export function makeHoroscopeUrl(
-  kind: string = "daily",
-  when: string = "TODAY",
-  sign: string = "Leo"
-) {
-  const baseUrl =
-    import.meta.env.VITE_HOROSCOPE_URL ||
-    "https://horoscope-app-api.vercel.app/api/v1/get-horoscope";
-  if (!baseUrl) {
-    throw new Error("VITE_HOROSCOPE_URL is not defined");
-  }
-  return `${baseUrl}/${kind}?sign=${sign}&when=${when}`;
+export const API_KEY = import.meta.env.VITE_OPENAI_SECRET || "";
+
+/* https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety */
+export async function fetchChat({
+  content = "Tell me a joke",
+}: {
+  content: string;
+}): Promise<string | null> {
+  const client = new OpenAI({ apiKey: API_KEY, dangerouslyAllowBrowser: true });
+  const response = await client.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content }],
+    temperature: 0.8,
+    max_tokens: 1024,
+  });
+  return response.choices[0]?.message?.content;
 }
 
 /**
@@ -116,30 +113,4 @@ export async function getWeather(zip: string): Promise<string> {
     const weatherResults = `Could not get weather for zip ${zip}`;
     return weatherResults;
   }
-}
-
-/**
- * Get the zodiac sign for a given date.
- * @param {Date} date - The date to get the zodiac sign for.
- * @returns {string} The zodiac sign for the given date.
- */
-export function getZodiacSign(date: Date): string {
-  const day = date.getDate();
-  const month = date.getMonth() + 1; // JS months are 0-based
-
-  if ((month === 1 && day >= 20) || (month === 2 && day <= 18))
-    return "Aquarius";
-  if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return "Pisces";
-  if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "Aries";
-  if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "Taurus";
-  if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "Gemini";
-  if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "Cancer";
-  if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Leo";
-  if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "Virgo";
-  if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "Libra";
-  if ((month === 10 && day >= 23) || (month === 11 && day <= 21))
-    return "Scorpio";
-  if ((month === 11 && day >= 22) || (month === 12 && day <= 21))
-    return "Sagittarius";
-  return "Capricorn";
 }
